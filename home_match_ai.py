@@ -1,5 +1,6 @@
 from langchain_openai.chat_models import ChatOpenAI
-from langchain_core.messages import HumanMessage, AIMessage
+from langchain_openai.embeddings import OpenAIEmbeddings
+from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from langchain_core.prompts import PromptTemplate
 from langchain_core.documents import Document
 from langchain_community.vectorstores import Chroma
