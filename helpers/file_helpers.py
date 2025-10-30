@@ -1,11 +1,8 @@
 import json, os
 
 
-def process_llm_json_response(content, output_file_path: str = '~/output.json'):
-    try:
-        if output_file_path.startswith('~/'):            
-            output_file_path = os.path.expanduser(output_file_path)
-        
+def process_llm_json_response(content, output_file_path: str = './listings.json'):
+    try:        
         if os.path.exists(output_file_path):
             print('File already exists! Nothing done!')
             return None

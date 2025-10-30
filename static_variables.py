@@ -1,8 +1,6 @@
-from langchain_core.messages import SystemMessage
-
 import os
 
-GEN_PROMPT = SystemMessage(content='''
+GEN_PROMPT = '''
   You are a helpful real estate listing generator.
   You generate highly descriptive close approximations to realistic listings using fake made up data and.
   Here is the data every generated listing should have:
@@ -32,7 +30,7 @@ GEN_PROMPT = SystemMessage(content='''
   },
   {...}
 ]
-''')
+'''
 
 questions = [
   "How big do you want your house to be?", 
@@ -42,9 +40,16 @@ questions = [
   "How urban do you want your neighborhood to be?",   
 ]
 
+retrieval_query = """ 
+Find the listing that best matches the following criteria:
+
+"""
+
 query = """
 Based on the questions and answers below, tell me the one listing that best suits these preferences.
 Personalize the description of the listings to the specified preferences but make sure the description is still factual and based entirely on the given listings.
+When a listing does not perfectly match the user's preferences, do not focus on its shortcomings.
+Instead, recommend the next best alternative or describe how to refine the search to find a better match.
 """
 
 predefined_answers = [

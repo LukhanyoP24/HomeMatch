@@ -23,7 +23,7 @@ class HomeMatchAI:
     db: Chroma
     """Chroma vector store instance for storing and retrieving real estate listings."""
 
-    __LISTINGS_FILE_PATH: str = os.path.expanduser('~/listings.json')
+    __LISTINGS_FILE_PATH: str = './listings.json'
     """File path for saving and loading real estate listings."""
     
     listings: list[Document]
@@ -47,10 +47,9 @@ class HomeMatchAI:
         if num_listings is None or num_listings <= 0:
             num_listings = 10
 
-        self.__generate_and_load_listings(num_listings=num_listings)
-
         self.__setup_chat_model(temp=temp, tokens=max_tokens)
         self.__setup_embeddings(model_name=embedding_model_name)
+        self.__generate_and_load_listings(num_listings=num_listings)
         self.__setup_database()
 
 
@@ -145,7 +144,7 @@ class HomeMatchAI:
             ) for listing in listings
         ]
         
-    def retrieve_property_recommendations(self, query: str, k: int = 3) -> AIMessage:
+    def retrieve_property_recommendations(self, answers: str, k: int = 3) -> AIMessage:
         """
         This function recommends real estate listings based on a given query by performing a similarity search.
         Parameters:
@@ -154,10 +153,11 @@ class HomeMatchAI:
         Returns:
          - AIMessage: The AI message containing the recommended listings.
         """
+        
 
-        similar_listings = self.db.similarity_search(query=query, k=k)
+        similar_listings = self.db.similarity_search(query=retrieval_query+answers, k=k)
         prompt = PromptTemplate(
             template='{query}\nContext: {listings_to_personalize}',
             input_variables=['query', 'listings_to_personalize']
         )
-        return self.llm.invoke(prompt.format(query=query, listings_to_personalize=similar_listings))
+        return self.llm.invoke(prompt.format(query=query+answers, listings_to_personalize=similar_listings))

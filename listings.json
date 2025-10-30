@@ -1,0 +1,92 @@
+[
+  {
+    "neighborhood": "Sea Point",
+    "price": "R2,500,000",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "house_size": "80 sqm",
+    "description": "Cozy coastal apartment with stunning ocean views.",
+    "neighborhood_description": "Sea Point is a vibrant coastal suburb known for its promenade and variety of restaurants."
+  },
+  {
+    "neighborhood": "Sandton",
+    "price": "R5,800,000",
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "house_size": "300 sqm",
+    "description": "Modern family home with a spacious garden and swimming pool.",
+    "neighborhood_description": "Sandton is an upscale area known for its shopping centers and luxury properties."
+  },
+  {
+    "neighborhood": "Claremont",
+    "price": "R3,200,000",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "house_size": "150 sqm",
+    "description": "Charming Victorian house with a renovated kitchen and original features.",
+    "neighborhood_description": "Claremont is a leafy suburb with good schools and easy access to amenities."
+  },
+  {
+    "neighborhood": "Camps Bay",
+    "price": "R12,000,000",
+    "bedrooms": 6,
+    "bathrooms": 4,
+    "house_size": "450 sqm",
+    "description": "Luxurious villa with panoramic mountain and sea views.",
+    "neighborhood_description": "Camps Bay is an exclusive area with upscale homes and a beautiful sandy beach."
+  },
+  {
+    "neighborhood": "Green Point",
+    "price": "R3,500,000",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "house_size": "120 sqm",
+    "description": "Stylish apartment with a balcony overlooking the stadium.",
+    "neighborhood_description": "Green Point is a trendy suburb known for its nightlife and proximity to the city center."
+  },
+  {
+    "neighborhood": "Fourways",
+    "price": "R4,600,000",
+    "bedrooms": 5,
+    "bathrooms": 3,
+    "house_size": "280 sqm",
+    "description": "Spacious family home with a pool and entertainment area.",
+    "neighborhood_description": "Fourways is a popular residential area with shopping malls and good schools."
+  },
+  {
+    "neighborhood": "Stellenbosch",
+    "price": "R8,500,000",
+    "bedrooms": 4,
+    "bathrooms": 4,
+    "house_size": "350 sqm",
+    "description": "Elegant wine estate with vineyards and a private cellar.",
+    "neighborhood_description": "Stellenbosch is a historic town surrounded by vineyards and famous for its wine route."
+  },
+  {
+    "neighborhood": "Hout Bay",
+    "price": "R6,200,000",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "house_size": "200 sqm",
+    "description": "Secluded beachfront cottage with breathtaking ocean views.",
+    "neighborhood_description": "Hout Bay is a picturesque coastal village known for its fishing harbor and scenic beauty."
+  },
+  {
+    "neighborhood": "Constantia",
+    "price": "R9,000,000",
+    "bedrooms": 6,
+    "bathrooms": 5,
+    "house_size": "400 sqm",
+    "description": "Grand mansion with landscaped gardens and a tennis court.",
+    "neighborhood_description": "Constantia is an affluent suburb with prestigious wine estates and lush greenery."
+  },
+  {
+    "neighborhood": "Durbanville",
+    "price": "R4,000,000",
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "house_size": "250 sqm",
+    "description": "Contemporary townhouse in a secure estate with mountain views.",
+    "neighborhood_description": "Durbanville is a peaceful suburb known for its wine farms and outdoor lifestyle."
+  }
+]
