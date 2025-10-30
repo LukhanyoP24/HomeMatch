@@ -146,14 +146,14 @@ class HomeMatchAI:
         
     def retrieve_property_recommendations(self, answers: str, k: int = 3) -> AIMessage:
         """
-        This function recommends real estate listings based on a given query by performing a similarity search.
+        This function retrieves property recommendations based on user answers by performing a similarity search
+        in the database and generating a personalized response using the chat model.
         Parameters:
-         - query (str): The query string containing user preferences.
+         - answers (str): The user's answers to the property preference questions.
          - k (int): The number of similar listings to retrieve. Default is 3.
         Returns:
-         - AIMessage: The AI message containing the recommended listings.
+         - AIMessage: The AI-generated message containing the personalized property recommendations.
         """
-        
 
         similar_listings = self.db.similarity_search(query=retrieval_query+answers, k=k)
         prompt = PromptTemplate(
