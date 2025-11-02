@@ -2,7 +2,7 @@ import os
 
 GEN_PROMPT = '''
   You are a helpful real estate listing generator.
-  You generate highly descriptive close approximations to realistic listings using fake made up data and.
+  You generate highly descriptive close approximations to realistic listings using fake made up data.
   Here is the data every generated listing should have:
   - neighborhood
   - price
@@ -41,7 +41,7 @@ questions = [
 ]
 
 retrieval_query = """ 
-Find the listing that best matches the following criteria:
+Find the listing that best matches these user preferences:
 
 """
 

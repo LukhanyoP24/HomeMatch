@@ -144,20 +144,32 @@ class HomeMatchAI:
             ) for listing in listings
         ]
         
-    def retrieve_property_recommendations(self, answers: str, k: int = 3) -> AIMessage:
+    def augment_recommended_listing(self, listing: Document, user_preferences: str) -> AIMessage:
         """
-        This function retrieves property recommendations based on user answers by performing a similarity search
-        in the database and generating a personalized response using the chat model.
+        This function augments a recommended listing's description based on user preferences.
         Parameters:
-         - answers (str): The user's answers to the property preference questions.
-         - k (int): The number of similar listings to retrieve. Default is 3.
+         - listing (Document): The recommended listing as a Document object.
+         - user_preferences (str): The user's preferences as a string.
         Returns:
-         - AIMessage: The AI-generated message containing the personalized property recommendations.
+         - AIMessage: The AI-generated message containing the augmented listing description.
         """
 
-        similar_listings = self.db.similarity_search(query=retrieval_query+answers, k=k)
-        prompt = PromptTemplate(
-            template='{query}\nContext: {listings_to_personalize}',
-            input_variables=['query', 'listings_to_personalize']
-        )
-        return self.llm.invoke(prompt.format(query=query+answers, listings_to_personalize=similar_listings))
+        messages = [
+            PromptTemplate(
+                input_variables=['listing_description', 'listing_data', 'user_preferences'],
+                template="""
+                Based on the following user preferences, enhance the listing description:
+
+                User Preferences:
+                {user_preferences}
+                
+                Listing Data:
+                {listing_data}
+
+                Listing Description:
+                {listing_description}
+                """
+            ).format(user_preferences=user_preferences, listing_data=listing.metadata, listing_description=listing.page_content)
+        ]
+
+        return self.llm.invoke(input=messages)
