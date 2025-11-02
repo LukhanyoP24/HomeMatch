@@ -158,7 +158,8 @@ class HomeMatchAI:
             PromptTemplate(
                 input_variables=['listing_description', 'listing_data', 'user_preferences'],
                 template="""
-                Based on the following user preferences, enhance the listing description:
+                Based on the following user preferences, enhance the listing description by highlighting relevant features and 
+                tailoring the language to better align with the user's desires.:
 
                 User Preferences:
                 {user_preferences}
